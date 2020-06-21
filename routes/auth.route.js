@@ -1,0 +1,17 @@
+const express = require("express");
+var shortid = require("shortid");
+var controller = require('../controller/auth.controller');
+
+var router = express.Router();  
+
+var loginValidation = require('../validation/login.validation');
+
+//var validation = require('../validation/a.validation');
+var db = require('../db');
+
+
+
+router.get('/login',controller.login);
+router.post('/login',loginValidation.postLogin,controller.postLogin);
+
+module.exports = router;
